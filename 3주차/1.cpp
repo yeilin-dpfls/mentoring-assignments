@@ -33,7 +33,7 @@ void caculator::init()
 void caculator::add()
 {
 	addresult = num1 + num2 + num3 + num4 + num5;
-	cout << "합계 : << addresult;
+	cout << "합계 : " << addresult;
 }
 int main(void)
 {
