@@ -10,7 +10,7 @@ private:
 
 public:
     void Init();
-    int random();
+    void randomfunc();
 };
 void Carculator :: Init()
 {
@@ -18,19 +18,19 @@ void Carculator :: Init()
     int i = 0;
 
 }
-int Carculator :: random()
+void Carculator::randomfunc()
 {
     srand(time(NULL));
     for (int i = 0; i < 5; i++)
     {
         randomnum = rand() % 101;
-        cout << random;
+        cout << randomnum;
     }
 }
 int main()
 {
     Carculator cal;
     cal.Init();
-    cal.random();
+    cal.randomfunc();
 
 }
