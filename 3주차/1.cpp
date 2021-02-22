@@ -21,13 +21,13 @@ void caculator::init()
 
 	cout << "1번째 정수 입력: ";
 	cin >> num1;
-	cout << endl << "2번째 정수 입력: ";
+	cout << "2번째 정수 입력: ";
 	cin >> num2;
-	cout << endl << "3번째 정수 입력: ";
+	cout << "3번째 정수 입력: ";
 	cin >> num3;
-	cout << endl << "4번째 정수 입력: ";
+	cout << "4번째 정수 입력: ";
 	cin >> num4;
-	cout << endl << "5번째 정수 입력: ";
+	cout << "5번째 정수 입력: ";
 	cin >> num5;
 }
 void caculator::add()
