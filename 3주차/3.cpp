@@ -12,9 +12,9 @@ public:
     void Init();
     void randomfunc();
 };
-void Carculator :: Init()
+void Carculator::Init()
 {
-    int randomnum= 0;
+    int randomnum = 0;
     int i = 0;
 
 }
@@ -24,7 +24,7 @@ void Carculator::randomfunc()
     for (int i = 0; i < 5; i++)
     {
         randomnum = rand() % 101;
-        cout << randomnum;
+        cout << randomnum << " ";
     }
 }
 int main()
