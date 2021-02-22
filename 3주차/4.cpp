@@ -34,7 +34,7 @@ void Calculator:: Init()
 double Calculator::Add(double num1, double num2) 
 { 
     addresult = numa + numb;
-    cout >> "%f + %f = %f", numa, numb, addresult;
+    cout << numa << "+" << numb <<"=" << addresult<< endl;
     numofAdd++;
  
 }
@@ -42,7 +42,7 @@ double Calculator::Add(double num1, double num2)
 double Calculator::Min(double num1, double num2)
 {
     minresult = numa - numb;
-    cout >> "%f - %f= %f\n", numa, numb, minresult;
+    cout << numa << "-" << numb <<"=" << minresult<< endl;
     numofMin++;
 }
 
@@ -50,23 +50,23 @@ double Calculator::Min(double num1, double num2)
 double Calculator::Mul(double num1, double num2)
 {
     mulresult = numa * numb;
-    cout >> "%f * %f = %f\n", numa, numb, mulresult;
+    cout << numa << "x" << numb <<"=" << mulresult<< endl;
     numofMul++;
 }
 
 double Calculator::Div(double num1, double num2) {
    
     divresult = numa / numb;
-    cout >> " %f / %f = %f\n", numa, numb, divresult;
+    cout << numa << "/" << numb <<"=" << divresult << endl ;
     numofDiv++; 
 }
 
 void Calculator::ShowOpCount() 
 {
-    cout >> "덧셈:" >> numofAdd;
-    cout >> "뺄셈:" >> numofMin;
-    cout >> "곱셈:" >> numofMul;
-    cout >> "나눗셈:" >> numofDiv;
+    cout << "덧셈: " << numofAdd;
+    cout << " 뺄셈: " << numofMin;
+    cout << " 곱셈: " << numofMul;
+    cout << " 나눗셈: " << numofDiv;
     
 }
 
