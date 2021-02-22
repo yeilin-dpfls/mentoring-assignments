@@ -7,9 +7,10 @@ private:
     int numOfMin;
     int numOfMul;
     int numOfDiv;
-    double numa;
-    double numb;
-    char sign;
+    double addresult;
+    double minresult;
+    double mulresult;
+    double divresult;
 
 public:
     void Init();
@@ -18,69 +19,83 @@ public:
     double Mul(double num1, double num2);
     double Div(double num1, double num2);
     void ShowOpCount();
+    char sign;
+    double num1;
+    double num2;
 };
 
-void Calculator:: Init() 
+void Calculator::Init()
 {
-    numofAdd = 0;
-    numofMin = 0;
-    numofMul = 0;
-    numofDiv = 0;
-    cin >> numa;
+    numOfAdd= 0;
+    numOfMin = 0;
+    numOfMul = 0;
+    numOfDiv = 0;
+    num1 = 0;
+    num2 = 0;
+    addresult = 0; 
+    minresult = 0;
+    mulresult = 0;
+    divresult = 0;
+    cin >> num1;
     cin >> sign;
-    cin >> numb;
+    cin >> num2;
 }
 
-double Calculator::Add(double num1, double num2) 
-{ 
-    addresult = numa + numb;
-    cout << numa << "+" << numb <<"=" << addresult<< endl;
-    numofAdd++;
- 
+double Calculator::Add(double num1, double num2)
+{
+    addresult = num1 + num2;
+    cout << num1<< "+" << num2<< "=" << addresult << endl;
+    numOfAdd++;
+    return addresult;
+
 }
 
 double Calculator::Min(double num1, double num2)
 {
-    minresult = numa - numb;
-    cout << numa << "-" << numb <<"=" << minresult<< endl;
-    numofMin++;
+    minresult = num1 - num2;
+    cout << num1 << "-" << num2 << "=" << minresult << endl;
+    numOfMin++;
+    return minresult;
 }
 
 
 double Calculator::Mul(double num1, double num2)
 {
-    mulresult = numa * numb;
-    cout << numa << "x" << numb <<"=" << mulresult<< endl;
-    numofMul++;
+    mulresult = num1* num2;
+    cout << num1<< "x" << num2<< "=" << mulresult << endl;
+    numOfMul++;
+    return mulresult;
 }
 
 double Calculator::Div(double num1, double num2) {
-   
-    divresult = numa / numb;
-    cout << numa << "/" << numb <<"=" << divresult << endl ;
-    numofDiv++; 
+
+    divresult = num1 / num2;
+    cout << num1 << "/" << num2 << "=" << divresult << endl;
+    numOfDiv++;
+    return divresult;
 }
 
-void Calculator::ShowOpCount() 
+void Calculator::ShowOpCount()
 {
-    cout << "덧셈: " << numofAdd;
-    cout << " 뺄셈: " << numofMin;
-    cout << " 곱셈: " << numofMul;
-    cout << " 나눗셈: " << numofDiv;
-    
+    cout << "덧셈: " << numOfAdd;
+    cout << " 뺄셈: " << numOfMin;
+    cout << " 곱셈: " << numOfMul;
+    cout << " 나눗셈: " << numOfDiv;
+
 }
 
 int main(void)
 {
-    Calculator cal; 
-    if sign == '+'
-        cal.Add();
-    if sign == '-'
-        cal.Min();
-    if sign == '*'
-        cal.Mul();
-    if sign == '/'
-        cal.Div();
-    
-    cal.ShowOPCount();
+    Calculator cal;
+    cal.Init();
+  
+    if (cal.sign == '+')
+        cal.Add(cal.num1, cal.num2);
+    if (cal.sign == '-')
+        cal.Min(cal.num1, cal.num2);
+    if (cal.sign == '*')
+        cal.Mul(cal.num1, cal.num2);
+    if (cal.sign == '/')
+        cal.Div(cal.num1, cal.num2);
+    cal.ShowOpCount();
 }
