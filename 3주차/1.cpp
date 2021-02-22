@@ -13,27 +13,27 @@ private:
 
 public:
 	void init();
-	double add(double num1, double num2);
+	void add();
 	
 };
 void caculator::init()
 {
 
-	cout << "1¹øÂ° Á¤¼ö ÀÔ·Â:\n";
+	cout << "1ë²ˆì§¸ ì •ìˆ˜ ìž…ë ¥:\n";
 	cin >> num1;
-	cout << "2¹øÂ° Á¤¼ö ÀÔ·Â:\n";
+	cout << "2ë²ˆì§¸ ì •ìˆ˜ ìž…ë ¥:\n";
 	cin >> num2;
-	cout << "3¹øÂ° Á¤¼ö ÀÔ·Â:\n";
+	cout << "3ë²ˆì§¸ ì •ìˆ˜ ìž…ë ¥:\n";
 	cin >> num3;
-	cout << "4¹øÂ° Á¤¼ö ÀÔ·Â:\n";
+	cout << "4ë²ˆì§¸ ì •ìˆ˜ ìž…ë ¥:\n";
 	cin >> num4;
-	cout << "5¹øÂ° Á¤¼ö ÀÔ·Â:\n";
+	cout << "5ë²ˆì§¸ ì •ìˆ˜ ìž…ë ¥:\n";
 	cin >> num5;
 }
-double caculator::add(double num1, double num2)
+void caculator::add()
 {
 	addresult = num1 + num2 + num3 + num4 + num5;
-	cout << "ÇÕ°è : %d", addresult;
+	cout << "í•©ê³„ : << addresult;
 }
 int main(void)
 {
