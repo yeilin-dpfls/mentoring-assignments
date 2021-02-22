@@ -81,4 +81,6 @@ int main(void)
         cal.Mul();
     if sign == '/'
         cal.Div();
+    
+    cal.ShowOPCount();
 }
