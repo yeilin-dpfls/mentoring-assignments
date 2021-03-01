@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 using namespace std;
 
 class Node {
@@ -6,17 +7,16 @@ public:
 	int data;
     int i;
 	Node* next;
-    Node* currentNode;
-    Node* tempNode;
 };
 
 class Link {
 public:
 	Node* head;
     void ClearNode();
-    void InitNode();
-    void DeleteNode();
-    void SearchNode();
+    void ClearSize();
+    void InsertNode(int data);
+    void DeleteNode(int nodeIndex);
+    void SearchNode(int nodeIndex);
     void SizeNode();
     void PrintNode();
     void MainPageMenu();
@@ -26,119 +26,100 @@ private:
 void Link :: ClearNode()
 {
     head = new Node();
-    head = NULL;
-    Node *tempNode = new Node();
-    tempNode = NULL;
-    Node* currentNode = new Node();
-    currentNode = NULL;
-    Node* swapNode = new Node();
-    swapNode = NULL;
-    Node* deleteNode = new Node();
-    deleteNode = NULL;
-    int data = 0;
-    int index = 0;
-    int size = 0;
 }
-void Link :: InitNode()
+void Link::ClearSize()
+{
+    size = 0;
+}
+void Link :: InsertNode(int data)
 {
     cout << "넣고싶은 데이터를 입력하세요 :";
-    int data = 0;
-    int size = 0;
     cin >> data;
     if (size == 0)
     {
-        head->data;
-        size++;
+        head->data = data;
         cout << "입력이 완료되었습니다." << '\n';
     }
     else
     {
-        Node* currentNode;
-        currentNode = new Node;
+        Node* currentNode = new Node();
         currentNode->data = data;
         Node* tempNode = head;
         while (tempNode->next != nullptr)
         {
-           tempNode->next = currentNode;
-           size++;
-           break;
+            tempNode = tempNode->next;
         }
+        tempNode->next = currentNode;
         cout << "입력이 완료되었습니다." << '\n';
         
     }
+    size++;
       
 }
-void Link::DeleteNode()
+void Link::DeleteNode(int nodeIndex)
 {
-    Node* tempNode = NULL;
-    Node* deleteNode = NULL;
-    Node* swapNode = NULL;
+    Node* tempNode = head;
+    Node* deleteNode;
+    Node* swapNode;
     int index;
     cout << "삭제하고 싶은 데이터 인덱스를 입력하세요 : ";
     cin >> index;
-    if ( index ==0 )
+    if (index == 0)
     {
         head = tempNode->next;
-        tempNode = deleteNode;
-        delete deleteNode;
-        cout << "삭제가 완료되었습니다.";
-        size--;      
-     }
+        deleteNode = tempNode;
+    }
     else 
     {
         for (int i = 0; i < index - 1; i++)
         {
             tempNode = tempNode->next;
         }
-        deleteNode = tempNode->next;
+        deleteNode = tempNode-> next;
         swapNode = deleteNode->next; 
         tempNode->next = swapNode;
-        delete deleteNode;
-        cout << "삭제가 완료되었습니다.";
-        size--;
     }
+    delete deleteNode;
+    cout << "삭제가 완료되었습니다." << '\n';
+    size--;
          
 }
-void Link::SearchNode()
+void Link::SearchNode(int index)
 {
-    Node* tempNode;
     int i = 0;
-    int index = 0;
-    int data = 0;
-    tempNode = head;
-    cout << "찾고싶은 데이터의 인덱스를 입력하세요 : " << '\n';
+    Node* tempNode = head;
+    cout << "찾고싶은 데이터의 인덱스를 입력하세요 :  " ;
     cin>> i;
+    for (i=0; i<size;i++) 
     if (index == i)
     {
         tempNode->data;
-        cout << "인덱스" << i << "의 값 : " << data << '\n';
-        cout << "탐색을 완료했습니다.";
+        cout << "인덱스" << i << "의 값 : " << tempNode ->data << '\n';
+        cout << "탐색을 완료했습니다." << '\n';
     }
     else
-        tempNode = tempNode->next; 
-        cout << "인덱스" << i << "의 값 : " << data << '\n';
-        cout << "탐색을 완료했습니다.";
+    {
+        tempNode = tempNode->next;
+    }
 }
 void Link::SizeNode()
 {
     cout << "Linked List 사이즈 :" << size << '\n';
-    cout << "출력을 완료했습니다.";
+    cout << "출력을 완료했습니다." << '\n';
 }
 void Link::PrintNode()
 {
-    Node* tempNode;
-    int index=0;
-    tempNode = head;
+    Node* tempNode = head;
     if (size == 0)
         cout << "출력될 값이 없습니다." << '\n';
     else
-        for(int i=0; i< index ;i++)
+        for(int i=0; i< size ;i++)
         {
+            cout << tempNode->data << '\t';
             tempNode = tempNode->next;
-            cout << tempNode->data << " ";
             
         }
-    cout << '\n' << "출력을 완료했습니다";
+    cout << '\n' << "출력을 완료했습니다."<<'\n';
  }
 
 void Link ::MainPageMenu()
@@ -158,17 +139,18 @@ int main(void)
     Link link;
     link.MainPageMenu();
     link.ClearNode();
+    link.ClearSize();
     while (1){
     cin >> modenumber; 
     switch (modenumber) {
         case 1:
-            link.InitNode();
+            link.InsertNode(10);
             break;
         case 2:
-            link.DeleteNode();
+            link.DeleteNode(0);
             break;
         case 3:
-            link.SearchNode();
+            link.SearchNode(1);
             break;
         case 4:
             link.PrintNode();
@@ -177,7 +159,9 @@ int main(void)
             link.SizeNode();
             break;
         case 6:
-            cout << "프로그램을 종료합니다";
+            cout << "프로그램을 종료합니다.";
+            exit(0);
+            break;
         }
     }
     
