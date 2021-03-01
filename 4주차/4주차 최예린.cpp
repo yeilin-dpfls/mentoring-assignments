@@ -5,7 +5,6 @@ using namespace std;
 class Node {
 public:
 	int data;
-    int i;
 	Node* next;
 };
 
@@ -124,7 +123,7 @@ void Link::PrintNode()
 
 void Link ::MainPageMenu()
 {
-    cout << "----- 링크드 리스트 프로그램-----" << '\n';
+    cout << '\n' <<"----- 링크드 리스트 프로그램-----" << '\n';
     cout << '\n' << "1. 데이터 입력" << '\n';
     cout << "2. 데이터 삭제" << '\n';
     cout << "3. 데이터 값 찾기" << '\n';
@@ -137,10 +136,10 @@ int main(void)
 {
     int modenumber=0;
     Link link;
-    link.MainPageMenu();
     link.ClearNode();
     link.ClearSize();
     while (1){
+    link.MainPageMenu();
     cin >> modenumber; 
     switch (modenumber) {
         case 1:
